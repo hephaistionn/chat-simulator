@@ -10,7 +10,7 @@ module.exports = emitter => {
    * Prepare the required component
    */
   const React = require('react');
-  const ChatBox = require('../components/ChatBox')(React, emitter);
+  const ChatBox = require('../components/ChatBox')(React);
 
   return require('./view.jsx')(React, emitter, ChatBox);
 };

@@ -47,11 +47,11 @@ module.exports = (emitter)=> {
   const store = new Store();
 
   /**
-   * The event Update transforms the store model.
+   * The 'update' event  transforms the store model.
    * The interest separation, the emitter mustn't be available in store.
    */
-  emitter.on('update', (tranform) => {
-    store.updateModel(tranform);
+  emitter.on('update', (transform) => {
+    store.updateModel(transform);
     const model = store.getModel();
     emitter.emit('draw', model) ;
   });

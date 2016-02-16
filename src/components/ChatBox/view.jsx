@@ -1,5 +1,5 @@
 
-module.exports = (React, emitter, Button, Input, Thread) => {
+module.exports = (React, Button, Input, Thread) => {
 
   return React.createClass({
 

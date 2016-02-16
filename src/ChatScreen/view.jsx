@@ -8,7 +8,7 @@ module.exports = (React, emitter, ChatBox) => {
       /** The view is initialized*/
       this.applyModel(this.props.model);
 
-      /** The view is redarwed when 'draw' event is triggered.*/
+      /** The view is redrawn when 'draw' event is triggered.*/
       emitter.on('draw', function (model) {
         this.applyModel(model)
       }.bind(this));
