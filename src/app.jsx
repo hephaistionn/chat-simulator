@@ -17,4 +17,7 @@ const ChatScreen = require('./ChatScreen')(emitter);
 /**Display current screen */
 const React = require('react');
 const ReactDOM = require('react-dom');
-ReactDOM.render((<ChatScreen model={store.getModel()}/>), document.getElementById('app'));
+
+ReactDOM.render((<ChatScreen
+  model={store.getModel()}
+  />), document.getElementById('app'));

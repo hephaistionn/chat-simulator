@@ -7,13 +7,14 @@ const gutil = require('gulp-util');
 const watchify = require('watchify');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
+const buffer = require('vinyl-buffer');
 const browserSync = require('browser-sync').create();
 
 const config = {
   entriesSass: './src/style.scss',
   output: './dist',
   browserifyOptions: {entries: ['./src/app.jsx'], debug: true},
-  babelifyOptions: {extensions: ['.jsx'], presets: ['es2015', 'react']}
+  babelifyOptions: {presets: ['es2015', 'react']}
 };
 
 var bundler;
@@ -22,6 +23,8 @@ function bundle() {
   return bundler.bundle()
     .on('error', gutil.log)
     .pipe(source('app.js'))
+    .pipe(buffer())
+    .pipe(uglify())
     .pipe(gulp.dest(config.output))
     .on('end', function() {
       gulp.src('./index.html')
