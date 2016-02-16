@@ -11,12 +11,12 @@ module.exports = (emitter)=> {
       this.model = {
         userA: {
           id: 'userA',
-          label: 'chat A',
+          label: 'Chat A',
           currentMessage: ''
         },
         userB: {
           id: 'userB',
-          label: 'chat B',
+          label: 'Chat B',
           currentMessage: ''
         },
         thread: [],

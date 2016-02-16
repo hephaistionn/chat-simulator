@@ -7,6 +7,12 @@ module.exports = React => {
       id: React.PropTypes.string.isRequired
     },
 
+    componentDidUpdate: function() {
+      /** force scroll down */
+      var node = this.refs.nav;
+      node.scrollTop = node.scrollHeight;
+    },
+
     render: function() {
 
       const id = this.props.id;
@@ -20,7 +26,7 @@ module.exports = React => {
       });
 
       return (
-        <div className={'thread'}>
+        <div ref={'nav'} className={'thread'} scrollTop={'99999px'} >
           {messagesDom}
         </div>
       );

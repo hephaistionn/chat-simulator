@@ -2,11 +2,12 @@
 .thread {
   height: 300px;
   background: white;
-  border: solid 1px black;
+  border: $dark-border;
   padding: 10px;
   box-sizing: border-box;
   font-size: 1.2em;
-  overflow-y: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
 
   .message {
     margin: 0 0 10px 0;
