@@ -1,5 +1,5 @@
 {
-  "preset": "chatSimulator",
+  "preset": "google",
   "fileExtensions": [".js", "jscs"],
 
   "requireSemicolons": true,

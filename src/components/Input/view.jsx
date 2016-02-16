@@ -1,4 +1,3 @@
-
 module.exports = React => {
 
   return React.createClass({
@@ -10,18 +9,19 @@ module.exports = React => {
       onPressEnter: React.PropTypes.func.isRequired
     },
 
-    onKeyPress: function(event){
-      if(event.charCode == 13)
+    onKeyPress: function(event) {
+      if (event.charCode == 13) {
         this.props.onPressEnter();
+      }
     },
 
     render: function() {
       return (
-          <input type="text"
-                 value={this.props.value}
-                 onChange={this.props.onChange}
-                 onKeyPress={this.onKeyPress}
-                 maxLength={this.props.maxLength}/>
+        <input type='text'
+               value={this.props.value}
+               onChange={this.props.onChange}
+               onKeyPress={this.onKeyPress}
+               maxLength={this.props.maxLength}/>
       );
     }
   });

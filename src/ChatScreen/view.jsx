@@ -1,4 +1,3 @@
-
 module.exports = (React, emitter, ChatBox) => {
 
   return React.createClass({
@@ -6,26 +5,12 @@ module.exports = (React, emitter, ChatBox) => {
     componentWillMount: function() {
 
       /** The view is initialized*/
-      this.applyModel(this.props.model);
+      this.setState(this.props.model);
 
       /** The view is redrawn when 'draw' event is triggered.*/
-      emitter.on('draw', function (model) {
-        this.applyModel(model)
+      emitter.on('draw', function(model) {
+        this.setState(model);
       }.bind(this));
-    },
-
-    applyModel: function(model){
-      this.setState({
-        idA: model.userA.id,
-        idB: model.userB.id,
-        currentMessageA: model.userA.currentMessage,
-        currentMessageB: model.userB.currentMessage,
-        maxLength: model.maxLength,
-        labelA: model.userA.label,
-        labelB: model.userB.label,
-        labelButton: model.labelButton,
-        thread: model.thread
-      })
     },
 
     componentWillUnmount: function() {
@@ -42,14 +27,16 @@ module.exports = (React, emitter, ChatBox) => {
 
     render: function() {
 
-      if(!this.state) return <div />;
+      if (!this.state) {
+        return <div />;
+      }
 
       return (
-        <div  className={'screen'}>
+        <div className={'screen'}>
           <ChatBox
-            id={this.state.idA}
-            label={this.state.labelA}
-            currentMessage={this.state.currentMessageA}
+            id={this.state.userA.id}
+            label={this.state.userA.label}
+            currentMessage={this.state.userA.currentMessage}
             labelButton={this.state.labelButton}
             maxLength={this.state.maxLength}
             thread={this.state.thread}
@@ -57,9 +44,9 @@ module.exports = (React, emitter, ChatBox) => {
             onSendMessage={this.onSendMessage}
             />
           <ChatBox
-            id={this.state.idB}
-            label={this.state.labelB}
-            currentMessage={this.state.currentMessageB}
+            id={this.state.userB.id}
+            label={this.state.userB.label}
+            currentMessage={this.state.userB.currentMessage}
             labelButton={this.state.labelButton}
             maxLength={this.state.maxLength}
             thread={this.state.thread}

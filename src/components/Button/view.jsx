@@ -1,4 +1,3 @@
-
 module.exports = React => {
 
   return React.createClass({

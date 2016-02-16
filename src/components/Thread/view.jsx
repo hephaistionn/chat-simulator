@@ -26,7 +26,7 @@ module.exports = React => {
       });
 
       return (
-        <div ref={'nav'} className={'thread'} scrollTop={'99999px'} >
+        <div ref={'nav'} className={'thread'} >
           {messagesDom}
         </div>
       );

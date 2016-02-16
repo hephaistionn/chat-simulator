@@ -1,4 +1,3 @@
-
 module.exports = (React, Button, Input, Thread) => {
 
   return React.createClass({
@@ -14,11 +13,11 @@ module.exports = (React, Button, Input, Thread) => {
       onWriteMessage: React.PropTypes.func.isRequired
     },
 
-    onWriteMessage: function(event){
+    onWriteMessage: function(event) {
       this.props.onWriteMessage(event.target.value, this.props.id)
     },
 
-    onSendMessage: function(){
+    onSendMessage: function() {
       this.props.onSendMessage(this.props.id)
     },
 

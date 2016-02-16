@@ -1,5 +1,5 @@
 /** Event Manager
- * This component is used to link the store, the view and actions
+ * This component is used to link the store, views and actions
  * */
 const emitter = require('event-emitter')();
 

@@ -5,6 +5,7 @@ module.exports = (emitter)=> {
 
     /**
      * constructor
+     *
      * @private
      */
     constructor() {
@@ -27,7 +28,8 @@ module.exports = (emitter)=> {
 
     /**
      * Update store model
-     * @param transform
+     *
+     * @param {func} transform
      * @returns {{userA: {id: string, label: string, currentMessage: string}, userB: {id: string, label: string, currentMessage: string}, messages: Array, labelButton: string}|*}
      */
     updateModel(transform) {
@@ -37,6 +39,7 @@ module.exports = (emitter)=> {
 
     /**
      * Get store model
+     *
      * @returns {{userA: {id: string, label: string, currentMessage: string}, userB: {id: string, label: string, currentMessage: string}, thread: Array, labelButton: string}|*}
      */
     getModel() {
@@ -53,6 +56,7 @@ module.exports = (emitter)=> {
   emitter.on('update', (transform) => {
     store.updateModel(transform);
     const model = store.getModel();
+    /**  force redraw */
     emitter.emit('draw', model) ;
   });
 

@@ -35,7 +35,7 @@ describe('chat scenario', function() {
   it('should store message in input', function() {
     inputA.value = 'hello';
     TestUtils.Simulate.change(inputA);
-    assert.equal(store.model.userA.currentMessage, 'hello');
+    assert.equal(store.model.userA.currentMessage, 'hello', 'userA model has saved the message');
   });
 
   it('should send message A', function(cb) {
@@ -45,12 +45,11 @@ describe('chat scenario', function() {
     setTimeout(function() {
       assert.equal(store.model.userA.currentMessage, '', 'userA model is clear');
       assert.equal(store.model.thread[0].content, 'hello', 'thread model has saved the post');
-      assert.equal(threadA.lastChild.textContent, 'chat A: hello', 'thread display the post');
-      assert.equal(threadB.lastChild.textContent, 'chat A: hello', 'thread display the post');
+      assert.equal(threadA.lastChild.textContent, 'Chat A: hello', 'thread display the post');
+      assert.equal(threadB.lastChild.textContent, 'Chat A: hello', 'thread display the post');
       cb();
-     },20);
+    }, 20);
   });
-
 
   it('should send message B', function(cb) {
 
@@ -62,9 +61,9 @@ describe('chat scenario', function() {
       assert.equal(store.model.userB.currentMessage, '', 'userA model is clear');
       assert.equal(store.model.thread[0].content, 'hello', 'previous message is preserved');
       assert.equal(store.model.thread[1].content, 'hello too', 'new message is stored');
-      assert.equal(threadB.lastChild.textContent, 'chat B: hello too', 'new message is display in thread');
+      assert.equal(threadB.lastChild.textContent, 'Chat B: hello too', 'new message is display in thread');
       cb();
-    },20);
+    }, 20);
   });
 
   it('shouldn\'t send empty message', function(cb) {
@@ -77,9 +76,9 @@ describe('chat scenario', function() {
       assert.equal(store.model.thread[0].content, 'hello', 'previous message is preserved');
       assert.equal(store.model.thread[1].content, 'hello too', 'previous message is stored');
       assert.isUndefined(store.model.thread[3], 'not empty message');
-      assert.equal(threadB.lastChild.textContent, 'chat B: hello too', 'new message is display in thread');
+      assert.equal(threadB.lastChild.textContent, 'Chat B: hello too', 'new message is display in thread');
       cb();
-    },20);
+    }, 20);
   });
 
 });

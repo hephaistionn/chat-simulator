@@ -7,7 +7,7 @@ module.exports = emitter => {
   require('./actions')(emitter);
 
   /**
-   * Prepare the required component
+   * Prepare the required components
    */
   const React = require('react');
   const ChatBox = require('../components/ChatBox')(React);

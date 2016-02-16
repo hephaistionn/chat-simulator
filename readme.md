@@ -10,9 +10,9 @@ All frontend side .
 Flux
 (Model, View, Actions)
 
-Views haven't internal states and logic.<br />
-Actions update global model.<br />
-Actions are triggered by views.<br />
+The view has no internal states and no logic.<br />
+Actions update the global model.<br />
+Actions are triggered by the view.<br />
 When a action updates the model, the view is redrawn.<br />
 
 
@@ -25,7 +25,7 @@ $ npm i -g gulp
 ```
 
 ```sh
-$ git clone [git-repo-url] ChatSimulator
+$ git clone https://github.com/hephaistionn/ChatSimulator.git
 $ cd ChatSimulator
 $ npm install
 $ gulp build
