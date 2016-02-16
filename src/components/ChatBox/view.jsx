@@ -25,11 +25,11 @@ module.exports = (React, emitter, Button, Input, Thread) => {
     render: function() {
       return (
         <div
-          className={'chatBox'}
-          id={this.props.id}>
+          className={'chatBox ' + this.props.id}>
           <h1>{this.props.label}</h1>
           <Thread
             thread={this.props.thread}
+            id={this.props.id}
             />
           <Input
             value={this.props.currentMessage}

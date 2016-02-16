@@ -20,7 +20,7 @@ module.exports = (emitter)=> {
           currentMessage: ''
         },
         thread: [],
-        maxLength: 30,
+        maxLength: 60,
         labelButton: 'OK'
       };
     }
