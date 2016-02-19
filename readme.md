@@ -39,6 +39,10 @@ You need Karma installed globally:
 $ npm install -g karma-cli
 ```
 
+# Add new chatbox
+
+You can add users in src/store.js, in the 'users' variable.
+
 Launch functional tests.
 ```sh
 $ karma start karma.conf.js

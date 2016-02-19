@@ -1,4 +1,3 @@
-
 module.exports = (emitter)=> {
 
   class Store {
@@ -10,20 +9,21 @@ module.exports = (emitter)=> {
      */
     constructor() {
       this.model = {
-        userA: {
-          id: 'userA',
-          label: 'Chat A',
-          currentMessage: ''
-        },
-        userB: {
-          id: 'userB',
-          label: 'Chat B',
-          currentMessage: ''
-        },
+        users: {},
         thread: [],
         maxLength: 60,
         labelButton: 'OK'
       };
+
+      const users = ['A','B','C','D','E'];
+
+      for (let i = 0; i < users.length; i++) {
+        this.model.users['user' + user[i]] = {
+          id: 'user' + user[i],
+          label: 'Chat ' + user[i],
+          currentMessage: ''
+        };
+      }
     }
 
     /**
@@ -57,7 +57,7 @@ module.exports = (emitter)=> {
     store.updateModel(transform);
     const model = store.getModel();
     /**  force redraw */
-    emitter.emit('draw', model) ;
+    emitter.emit('draw', model);
   });
 
   return store;

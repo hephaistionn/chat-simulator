@@ -1,5 +1,7 @@
 module.exports = (React, emitter, ChatBox) => {
 
+  const _ = require('lodash');
+
   return React.createClass({
 
     componentWillMount: function() {
@@ -31,28 +33,25 @@ module.exports = (React, emitter, ChatBox) => {
         return <div />;
       }
 
+      const users = this.state.users;
+
+      const chats = _.map(users, (user, index) => {
+        return <ChatBox
+          id={user.id}
+          key={index}
+          label={user.label}
+          currentMessage={user.currentMessage}
+          labelButton={this.state.labelButton}
+          maxLength={this.state.maxLength}
+          thread={this.state.thread}
+          onWriteMessage={this.onWriteMessage}
+          onSendMessage={this.onSendMessage}
+          />;
+      });
+
       return (
         <div className={'screen'}>
-          <ChatBox
-            id={this.state.userA.id}
-            label={this.state.userA.label}
-            currentMessage={this.state.userA.currentMessage}
-            labelButton={this.state.labelButton}
-            maxLength={this.state.maxLength}
-            thread={this.state.thread}
-            onWriteMessage={this.onWriteMessage}
-            onSendMessage={this.onSendMessage}
-            />
-          <ChatBox
-            id={this.state.userB.id}
-            label={this.state.userB.label}
-            currentMessage={this.state.userB.currentMessage}
-            labelButton={this.state.labelButton}
-            maxLength={this.state.maxLength}
-            thread={this.state.thread}
-            onWriteMessage={this.onWriteMessage}
-            onSendMessage={this.onSendMessage}
-            />
+          {chats}
         </div>
       );
     }

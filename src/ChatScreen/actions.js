@@ -5,15 +5,16 @@ module.exports = emitter => {
 
     const transform = model => {
       const id = data.id;
-      if (model[id].currentMessage === '') {
+      const user = model.users[id];
+      if (user.currentMessage === '') {
         return model;
       }
       model.thread.push({
         id: id,
-        content: model[id].currentMessage,
-        userName: model[id].label
+        content: user.currentMessage,
+        userName: user.label
       });
-      model[id].currentMessage = '';
+      user.currentMessage = '';
       return model;
     };
     /** call store to apply transformation */
@@ -24,7 +25,7 @@ module.exports = emitter => {
   emitter.on('write', function(data) {
 
     const transform = model => {
-      model[data.id].currentMessage = data.value;
+      model.users[data.id].currentMessage = data.value;
       return model;
     };
     /** call store to apply transformation */

@@ -30,6 +30,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.2",
     "gulp-util": "^3.0.7",
+    "lodash": "^4.5.0",
     "react": "^0.14.7",
     "react-addons-css-transition-group": "^0.14.7",
     "react-dom": "^0.14.7",
